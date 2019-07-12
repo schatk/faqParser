@@ -13,16 +13,16 @@ file_str = r
 r = re.sub('<span>','',file_str)
 file_str = r
 
-# Delete <p></p>
-r = re.sub('<p></p>\n\n','',file_str) # Not working?
-file_str = r
-
 # Delete </span> 
 r = re.sub('</span>','',file_str)
 file_str = r
 
 # Delete &nbsp; 
 r = re.sub('&nbsp;',' ',file_str)
+file_str = r
+
+# Delete <p></p>
+r = re.sub('(<p></p>\n\n|<p></p>\n','',file_str)
 file_str = r
 
 # Write the final string to the output file
