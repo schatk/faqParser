@@ -1,19 +1,27 @@
 import re
 
-# Open the poorly formatted FAQ
+# Open poorly formatted FAQ
 f = open("badFAQ.html",errors="ignore")
 file_str = f.read()
 f.close()
 
-# Clear styling from tags (will also remove <span> tags)
-r = re.sub('.style.*\">','>',file_str)
+# Clean tags
+r = re.sub('.style.*?">','>',file_str)
 file_str = r
 
-# Parse that formatted string, remove all </span> tags
+# Delete <span> tags
+r = re.sub('<span>','',file_str)
+file_str = r
+
+# Delete <p></p>
+r = re.sub('<p></p>\n\n','',file_str) # Not working?
+file_str = r
+
+# Delete </span> 
 r = re.sub('</span>','',file_str)
 file_str = r
 
-# Remove all &nbsp; 
+# Delete &nbsp; 
 r = re.sub('&nbsp;',' ',file_str)
 file_str = r
 
