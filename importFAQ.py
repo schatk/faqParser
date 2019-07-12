@@ -1,12 +1,12 @@
 import re
 
 # Open the poorly formatted FAQ
-f = open("badFAQ.html")
+f = open("badFAQ.html",errors="ignore")
 file_str = f.read()
 f.close()
 
 # Clear styling from tags (will also remove <span> tags)
-r = re.sub('.style.*">','>',file_str)
+r = re.sub('.style.*\">','>',file_str)
 file_str = r
 
 # Parse that formatted string, remove all </span> tags
