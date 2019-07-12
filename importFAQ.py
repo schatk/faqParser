@@ -22,7 +22,7 @@ r = re.sub('&nbsp;',' ',file_str)
 file_str = r
 
 # Delete <p></p>
-r = re.sub('(<p></p>\n\n|<p></p>\n','',file_str)
+r = re.sub('(<p></p>\n\n|<p></p>\n)','',file_str)
 file_str = r
 
 # Write the final string to the output file
