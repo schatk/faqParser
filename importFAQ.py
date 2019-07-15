@@ -9,16 +9,12 @@ f.close()
 r = re.sub('.style.*?">','>',file_str)
 file_str = r
 
-# Delete <span> tags
-r = re.sub('<span>','',file_str)
-file_str = r
-
-# Delete </span> 
-r = re.sub('</span>','',file_str)
-file_str = r
-
 # Delete &nbsp; 
 r = re.sub('&nbsp;',' ',file_str)
+file_str = r
+
+# Delete <span>,</span>
+r = re.sub('(<span>|</span>)','',file_str)
 file_str = r
 
 # Delete <p></p>
